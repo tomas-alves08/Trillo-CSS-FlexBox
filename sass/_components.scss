@@ -3,6 +3,10 @@
 .logo {
   height: 3.25rem;
   margin-left: 2rem;
+
+  @media only screen and (max-width: $bp-small) {
+    height: 3rem;
+  }
 }
 
 ////////////////////
@@ -13,6 +17,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: $bp-small) {
+    flex: 0 0 50%;
+  }
 
   &__input {
     font-family: inherit;
@@ -73,6 +81,10 @@
     padding: 0 2rem;
     cursor: pointer;
     height: 100%;
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 0 1rem;
+      }
   }
 
   & > *:hover {
@@ -105,11 +117,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+        right: 0;
+      }
   }
 
   &__user {
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
   }
 
   &__user-photo {
@@ -126,12 +148,26 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
     }
+
+    @media only screen and (max-width: $bp-medium) {
+        flex: 1;
+      }
   }
 
   &__item::before {
@@ -172,6 +208,15 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        padding: 1rem .5rem;
+      }
   }
 
   &__icon {
@@ -180,6 +225,10 @@
 
     fill: currentColor;
     margin-right: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 1rem;
+      }
   }
 }
 
@@ -191,6 +240,10 @@
   text-align: center;
   padding: 1.5rem;
   color: var(--color-grey-light-4);
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 //////////////////
@@ -222,6 +275,12 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 1.5rem;
+        letter-spacing: 0;
+        padding: 1.25rem 2rem;
+      }
   }
 
   &__stars {
@@ -259,11 +318,21 @@
     padding: 0 2.25rem;
     align-self: stretch;
 
+    @media only screen and (max-width: $bp-small) {
+        margin-left: 1rem;
+        padding: 0 1.5rem;
+      }
+
     &-average {
       margin-right: 0.5rem;
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: -4px;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+        margin-bottom: -2px;
+      }
     }
 
     &-count {
@@ -342,6 +411,10 @@
   display: flex;
   flex-wrap: wrap;
 
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem 0rem;
+  }
+
   &__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
@@ -354,15 +427,18 @@
     width: 1rem;
 
     // Older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     // Newer browsers - masks
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()){
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none;
+    }
   }
 }
 
@@ -380,6 +456,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -390,7 +467,7 @@
     border: 2px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -405,6 +482,11 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &::before {
     content: "\201C";
@@ -468,6 +550,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 1.2rem;
